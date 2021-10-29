@@ -5,19 +5,36 @@
         <meta http-equiv="X-UA-Compatible" content = "IE=edge">
         <meta name = "viewport" content="width=device-width, initial-scale=1.0">
         <link rel = "stylesheet" href = "css/login.css">
+        <script src = "js/login.js" defer></script>
         <title>TDE-PROGRAMACAO-WEB</title>
     </head>
     <body>
-        <div class = "login-box">
-            <h2>Login</h2>
+        <div class = "header">
+            <h2>Cadastro</h2>
             <form>
                 <div class="user-box">
-                    <input type="text" name="" required="">
+                    <input id = "nome" type = "text">
+                    <label>Nome</label>
+                </div>
+                <div class = "user-box">
+                    <input id = "sobrenome" type = "text">
+                    <label>Sobrenome</label>
+                </div>
+                <div class = "user-box">
+                    <input id = "email" type = "text">
+                    <label>E-mail</label>
+                </div>
+                <div class = "user-box">
+                    <input id = "username" type = "text">
                     <label>Username</label>
                 </div>
-                <div class="user-box">
-                    <input type="password" name="" required="">
-                    <label>Password</label>
+                <div class = "user-box">
+                    <input id = "senha" type = "password">
+                    <label>senha</label>
+                </div>
+                <div class = "user-box">
+                    <input id = "conf-senha" type = "password">
+                    <label>confirmar senha</label>
                 </div>
                 <a href="pages/game.html">
                     <span></span>
@@ -27,10 +44,9 @@
                     Confirmar
                 </a>
             </form>
-            <button id="dark-mode-toggle" class="dark-mode-toggle">
+            <button id = "dark-mode-toggle" class = "dark-mode-toggle">
                 <svg width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 496"><path fill="currentColor" d="M8,256C8,393,119,504,256,504S504,393,504,256,393,8,256,8,8,119,8,256ZM256,440V72a184,184,0,0,1,0,368Z" transform="translate(-8 -8)"/></svg>
             </button>
         </div>        
-        <script src = "js/login.js"></script>
     </body>
 </html>
