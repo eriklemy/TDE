@@ -1,3 +1,43 @@
+// jQuery comunicação com php 
+$(document).ready(function() {
+    fLocalEventosClick();
+});
+
+function fLocalEventosClick() {
+    $(".confirmar").click(function(){
+        fLocalComunicaServidor("inserir");
+        return false;
+    });
+
+    $(".mostrar").click(function() {
+        fLocalComunicaServidor("listar");
+        return false;
+    });
+}
+
+function fLocalComunicaServidor(arquivo) {
+    var valores = $("form").serialize();
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        data: valores,
+        url: "php/" + arquivo + ".php",
+        success: function(retorno) {
+            var conteudo = "";
+            for(var i = 0; i < retorno.length; i++){
+                conteudo += "<tr>";
+                conteudo += "<td>" + retorno[i]["nome"] + "</td>";
+                conteudo += "<td>" + retorno[i]["sobrenome"] + "</td>";
+                conteudo += "<td>" + retorno[i]["email"] + "</td>";
+                conteudo += "<td>" + retorno[i]["username"] + "</td>";
+                conteudo += "<td>" + retorno[i]["senha"] + "</td>";
+                conteudo += "</tr>";
+            }
+            $("table-lista").html(conteudo);
+        } 
+    });
+}
+
 // darkmode configuration
 let darkMode = localStorage.getItem('darkMode'); 
 const darkModeToggle = document.querySelector('#dark-mode-toggle');
@@ -26,72 +66,3 @@ darkModeToggle.addEventListener('click', () => {
         disableDarkMode();
     }
 });
-
-
-$(document).ready(function() {
-    fLocalEventosClick();
-
-});
-
-function fLocalEventosClick() {
-    $("#confirmado").click(function(){
-        fLocalComunicaServidor("inserir");
-        return false;
-    });
-
-    $("#listar").click(function() {
-        fLocalComunicaServidor("listar");
-        return false;
-    });
-}
-
-function fLocalComunicaServidor(arquivo) {
-    var valores = $("form").serialize();
-    $.ajax({
-        type: "POST",
-        dataType: "json",
-        data: valores,
-        url: "../php/" + arquivo + ".php",
-        success: function(retorno) {
-            var conteudo = "";
-            for(var i = 0; i < retorno.length; i++){
-                conteudo += "<td>";
-                conteudo += "<td>" + retorno[i]["nome"] + "</td>";
-                conteudo += "<td>" + retorno[i]["sobrenome"] + "</td>";
-                conteudo += "<td>" + retorno[i]["email"] + "</td>";
-                conteudo += "<td>" + retorno[i]["username"] + "</td>";
-                conteudo += "</tr>";
-            }
-            $("table-lista").html(conteudo);
-        } 
-    });
-}
-
-
-
-const entrar = document.querySelector('#entrar');
-
-entrar.addEventListener('click', () => {
-    var nome = document.getElementById("nome").value;
-    var sobrenome = document.getElementById("sobrenome").value;
-    var email = document.getElementById("email").value;
-    var username = document.getElementById("username").value;
-    var senha = document.getElementById("senha").value;
-    var senhaVerf = document.getElementById("senhaVerf").value;
-
-    if (verificaSenha(senha, senhaVerf) == true){
-        cadastro.push(nome);
-        cadastro.push(sobrenome);
-        cadastro.push(email);
-        cadastro.push(username);
-        cadastro.push(senha);
-
-        alert("cadastro realizado com sucesso!!");
-    } else alert("cadastro não efetuado!!");
-});
-
-function verificaSenha(senha, senhaVerf){
-    if(senha == senhaVerf)
-        return true;
-    else return false;
-}
