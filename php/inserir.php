@@ -5,10 +5,10 @@
     $username = $_POST["username"];
     $senha = $_POST["senha"];
 
-    $con = mysqli_connect("localhost:80", "root", "root", "banco_tde_pw");
+    $con = mysqli_connect("localhost:8080", "root", "root", "banco_tde_pw");
 
     mysqli_query($con, 
                  "INSERT INTO cadastro (nome, sobrenome, email, username, senha) 
-                  VALUES ('$nome', '$sobrenome', '$email', '$username', '$senha')
+                 VALUES ('$nome', '$sobrenome', '$email', '$username', '$senha') 
                 ");
 ?>

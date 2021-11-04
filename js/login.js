@@ -4,33 +4,38 @@ $(document).ready(function() {
 });
 
 function fLocalEventosClick() {
-    $(".confirmar").click(function(){
+    $("#confirmar").click(function() {
         fLocalComunicaServidor("inserir");
         return false;
     });
 
-    $(".mostrar").click(function() {
+    $("#mostrar").click(function() {
         fLocalComunicaServidor("listar");
         return false;
     });
 }
 
 function fLocalComunicaServidor(arquivo) {
-    var valores = $("form").serialize();
     $.ajax({
         type: "POST",
         dataType: "json",
-        data: valores,
+        data: {
+            nome: document.getElementById("nome").value,
+            sobrenome: document.getElementById("sobrenome").value,
+            email: document.getElementById("email").value,
+            username: document.getElementById("username").value,
+            senha: document.getElementById("senha").value
+        },
         url: "php/" + arquivo + ".php",
-        success: function(retorno) {
+        success: function(data) {
             var conteudo = "";
-            for(var i = 0; i < retorno.length; i++){
+            for(var i = 0; i < data.length; i++){
                 conteudo += "<tr>";
-                conteudo += "<td>" + retorno[i]["nome"] + "</td>";
-                conteudo += "<td>" + retorno[i]["sobrenome"] + "</td>";
-                conteudo += "<td>" + retorno[i]["email"] + "</td>";
-                conteudo += "<td>" + retorno[i]["username"] + "</td>";
-                conteudo += "<td>" + retorno[i]["senha"] + "</td>";
+                conteudo += "<td>" + data[i]["nome"] + "</td>";
+                conteudo += "<td>" + data[i]["sobrenome"] + "</td>";
+                conteudo += "<td>" + data[i]["email"] + "</td>";
+                conteudo += "<td>" + data[i]["username"] + "</td>";
+                conteudo += "<td>" + data[i]["senha"] + "</td>";
                 conteudo += "</tr>";
             }
             $("table-lista").html(conteudo);

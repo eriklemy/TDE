@@ -1,5 +1,5 @@
 <?php 
-    $con = mysqli_connect("localhost:80", "root", "root", "banco_tde_pw");
+    $con = mysqli_connect("localhost:8080", "root", "root", "banco_tde_pw");
     $resultado = mysqli_query($con, "SELECT * FROM cadastro");
 
     $i = 0;
