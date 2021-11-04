@@ -1,14 +1,13 @@
 <?php
-    $nome = $_POST["nome"];
+	$nome = $_POST["nome"];
     $sobrenome = $_POST["sobrenome"];
     $email = $_POST["email"];
     $username = $_POST["username"];
     $senha = $_POST["senha"];
 
-    $con = mysqli_connect("localhost:8080", "root", "root", "banco_tde_pw");
-
+    $con = mysqli_connect("localhost:3306", "root", "", "bancotdepw");
     mysqli_query($con, 
-                 "INSERT INTO cadastro (nome, sobrenome, email, username, senha) 
-                 VALUES ('$nome', '$sobrenome', '$email', '$username', '$senha') 
+                 "INSERT INTO cadastro (id, nome, sobrenome, email, username, senha)  
+                 VALUES (NULL, '$nome', '$sobrenome', '$email', '$username', '$senha') 
                 ");
-?>
+?>				

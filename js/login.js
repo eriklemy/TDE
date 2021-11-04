@@ -6,6 +6,7 @@ $(document).ready(function() {
 function fLocalEventosClick() {
     $("#confirmar").click(function() {
         fLocalComunicaServidor("inserir");
+        alert("teste");
         return false;
     });
 
@@ -16,31 +17,27 @@ function fLocalEventosClick() {
 }
 
 function fLocalComunicaServidor(arquivo) {
+    var my_data = $("form").serialize();
     $.ajax({
         type: "POST",
         dataType: "json",
-        data: {
-            nome: document.getElementById("nome").value,
-            sobrenome: document.getElementById("sobrenome").value,
-            email: document.getElementById("email").value,
-            username: document.getElementById("username").value,
-            senha: document.getElementById("senha").value
-        },
+        data: my_data,
         url: "php/" + arquivo + ".php",
-        success: function(data) {
+        success: function(retorno) {
             var conteudo = "";
-            for(var i = 0; i < data.length; i++){
+            for(var i = 0; i < retorno.length; i++){
                 conteudo += "<tr>";
-                conteudo += "<td>" + data[i]["nome"] + "</td>";
-                conteudo += "<td>" + data[i]["sobrenome"] + "</td>";
-                conteudo += "<td>" + data[i]["email"] + "</td>";
-                conteudo += "<td>" + data[i]["username"] + "</td>";
-                conteudo += "<td>" + data[i]["senha"] + "</td>";
+                conteudo += "<td>" + retorno[i]["nome"] + "</td>";
+                conteudo += "<td>" + retorno[i]["sobrenome"] + "</td>";
+                conteudo += "<td>" + retorno[i]["email"] + "</td>";
+                conteudo += "<td>" + retorno[i]["username"] + "</td>";
+                conteudo += "<td>" + retorno[i]["senha"] + "</td>";
                 conteudo += "</tr>";
             }
             $("table-lista").html(conteudo);
         } 
     });
+    // window.location.href = "pages/game.html";
 }
 
 // darkmode configuration
