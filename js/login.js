@@ -6,7 +6,6 @@ $(document).ready(function() {
 function fLocalEventosClick() {
     $("#confirmar").click(function() {
         fLocalComunicaServidor("inserir");
-        alert("teste");
         return false;
     });
 
@@ -37,7 +36,7 @@ function fLocalComunicaServidor(arquivo) {
             $("table-lista").html(conteudo);
         } 
     });
-    // window.location.href = "pages/game.html";
+    window.location.href = "pages/game.html";
 }
 
 // darkmode configuration
