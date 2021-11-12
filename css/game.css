@@ -13,7 +13,7 @@
     color: white;
     text-align: center;
     font-size: 40px;
-    margin-top: 10%;
+    margin-top: 3%;
 }
 
 .display {
@@ -79,5 +79,4 @@
 
 #reset {
     background-color: #ff3860;
-
 }

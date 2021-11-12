@@ -1,18 +1,13 @@
 // jQuery comunicação com php 
 $(document).ready(function() {
-    fLocalEventosClick();
+    confirmaCadastro();
 });
 
-function fLocalEventosClick() {
-    $("#confirmar").click(function() {
+function confirmaCadastro() {
+    $("#cadastrar").click(function() {
         fLocalComunicaServidor("inserir");
         return false;
-    });
-
-    $("#mostrar").click(function() {
-        fLocalComunicaServidor("listar");
-        return false;
-    });
+    })
 }
 
 function fLocalComunicaServidor(arquivo) {

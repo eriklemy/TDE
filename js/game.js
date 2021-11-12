@@ -50,13 +50,13 @@ window.addEventListener('DOMContentLoaded', () => {
     const announce = (type) => {
         switch(type) {
             case PLAYERO_WON:
-                announcer.innerHTML = 'Player <span class = "playerO">O</span>';
+                announcer.innerHTML = 'Player <span class = "playerO">O</span> Venceu';
                 break;
             case PLAYERX_WON:
-                announcer.innerHTML = 'Player <span class = "playerX">X</span>';
+                announcer.innerHTML = 'Player <span class = "playerX">X</span> Venceu';
                 break;
             case TIE:
-                announcer.innerText = 'Tie';
+                announcer.innerText = 'Empate';
         }
         announcer.classList.remove('hide');
     };
