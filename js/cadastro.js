@@ -22,7 +22,7 @@ function confirmaCadastro() {
             cadastro.push(senha);
             alert("cadastro realizado com sucesso!!");
             fLocalComunicaServidor("inserir");
-        } else alert("cadastro não efetuado!!, Necessaio preencher todos os campos e/ou SENHAS não CONFEREM!!");
+        } else alert("cadastro não efetuado!!, Necessario preencher todos os campos e/ou SENHAS não CONFEREM!!");
         return false;
     })
 }
