@@ -23,7 +23,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     function handleResultValidation() {
         let roundWon = false;
-        for(let i = 0; i <= 7; i++) {
+        for(let i = 0; i < winningConditions.length; i++) {
             const winCondition = winningConditions[i];
             const a = board[winCondition[0]];
             const b = board[winCondition[1]];
