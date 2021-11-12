@@ -1,3 +1,6 @@
+// TDE - Programação Web 
+// Erick Lemmy dos Santos Oliveira
+
 // jQuery comunicação com php 
 var cadastro = [];
 $(document).ready(function() {
