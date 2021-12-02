@@ -1,3 +1,5 @@
+// TDE - Programação Web 
+// Erick Lemmy dos Santos Oliveira 
 window.addEventListener('DOMContentLoaded', () => {
     const tiles = Array.from(document.querySelectorAll('.tile'));
     const playerDisplay = document.querySelector('.display-player');
@@ -23,7 +25,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     function handleResultValidation() {
         let roundWon = false;
-        for(let i = 0; i <= 7; i++) {
+        for(let i = 0; i < winningConditions.length; i++) {
             const winCondition = winningConditions[i];
             const a = board[winCondition[0]];
             const b = board[winCondition[1]];
@@ -50,13 +52,13 @@ window.addEventListener('DOMContentLoaded', () => {
     const announce = (type) => {
         switch(type) {
             case PLAYERO_WON:
-                announcer.innerHTML = 'Player <span class = "playerO">O</span>';
+                announcer.innerHTML = 'Player <span class = "playerO">O</span> Venceu';
                 break;
             case PLAYERX_WON:
-                announcer.innerHTML = 'Player <span class = "playerX">X</span>';
+                announcer.innerHTML = 'Player <span class = "playerX">X</span> Venceu';
                 break;
             case TIE:
-                announcer.innerText = 'Tie';
+                announcer.innerText = 'Empate';
         }
         announcer.classList.remove('hide');
     };
@@ -109,4 +111,31 @@ window.addEventListener('DOMContentLoaded', () => {
         tile.addEventListener('click', () => userAction(tile, index));
     });
     resetButton.addEventListener('click', resetBoard);
+});
+
+// darkmode
+let darkMode = window.localStorage.getItem("darkMode");
+const darkModeToggle = document.querySelector('#dark-mode-toggle');
+
+const enableDarkMode = () => {
+    document.body.classList.add('darkmode');
+    localStorage.setItem('darkMode', 'enabled');
+};
+
+const disableDarkMode = () => {
+    document.body.classList.remove('darkmode');
+    localStorage.setItem('darkMode', null);
+};
+
+if(darkMode === 'enabled'){
+    enableDarkMode();
+}
+
+darkModeToggle.addEventListener('click', () => {
+    darkMode = localStorage.getItem('darkMode');
+    if(darkMode !== 'enabled') {
+        enableDarkMode();
+    } else {
+        disableDarkMode();
+    }
 });

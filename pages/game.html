@@ -1,11 +1,15 @@
+<!--
+    TDE - Programação Web 
+    Erick Lemmy dos Santos Oliveira 
+-->
 <!DOCTYPE html>
 <html lang = "pt-BR">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content = "IE=edge">
         <meta name = "viewport" content="width=devide-width, initial-scale=1.0">
-        <link rel = "stylesheet" href = "../css/style.css">
-        <script src = "../js/script.js"></script>
+        <link rel = "stylesheet" href = "../css/game.css">
+        <script src = "../js/game.js" defer></script>
         <title>TDE-PROGRAMACAO-WEB</title>
     </head>    
     <body>
@@ -14,7 +18,7 @@
                 <h1> Jogo da Velha </h1>
             </section>
             <section class = "display"> 
-                turn Jogador <span class = "display-player playerX">X</span>
+                turno Jogador &#8594; <span class = "display-player playerX">X</span>
             </section>
             <section class = "container">
                 <div class="tile"></div>
@@ -31,6 +35,9 @@
             <section class = "controls">
                 <button id = "reset">Reiniciar</button>
             </section>
+            <button id = "dark-mode-toggle" class = "dark-mode-toggle">
+                <svg width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 496"><path fill="currentColor" d="M8,256C8,393,119,504,256,504S504,393,504,256,393,8,256,8,8,119,8,256ZM256,440V72a184,184,0,0,1,0,368Z" transform="translate(-8 -8)"/></svg>
+            </button>
         </main>
     </body>
 </html>

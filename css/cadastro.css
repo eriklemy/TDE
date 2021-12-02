@@ -1,25 +1,14 @@
-@property --rotate {
-    syntax: "<angle>";
-    initial-value: 132deg;
-    inherits: false;
-}
-
-html {
-    height: 100%;
-}
-
 body {
     margin:0;
     padding:0;
     font-family: sans-serif;
-    background: linear-gradient(#141e30, #243b55);
     min-height: 100vh;
     background: #212534;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 6.5rem;
+    padding-bottom: 1rem;
     box-sizing: border-box;
 }
 
@@ -29,65 +18,19 @@ body {
 
 .container {
     border-radius: 6px;
-    font-size: 1.5em;
+    font-size: 1.8em;
     color: rgb(88 199 250 / 0%);
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 400px;
-    padding: 40px;
-    transform: translate(-50%, -50%);
-    background: rgba(0,0,0,.5);
-    box-sizing: border-box;
+    padding: 10px 110px 130px 110px;
+    margin-bottom: 90px;
+    background: #212534;
     box-shadow: 0 15px 25px rgba(0,0,0,.6);
-}
-
-.container::before {
-    content: "";
-    width: 104%;
-    height: 102%;
-    border-radius: 8px;
-    background-image: linear-gradient(
-        var(--rotate)
-        , #5ddcff, #3c67e3 43%, #4e00c2);
-        position: absolute;
-        z-index: -1;
-        top: -1%;
-        left: -2%;
-        animation: spin 2.5s linear infinite;
-}
-  
-.container::after {
-    position: absolute;
-    content: "";
-    top: calc(var(65vh) / 6);
-    left: 0;
-    right: 0;
-    z-index: -1;
-    height: 100%;
-    width: 100%;
-    margin: 0 auto;
-    transform: scale(0.8);
-    filter: blur(calc(65vh / 6));
-    background-image: linear-gradient(
-        var(--rotate)
-        , #5ddcff, #3c67e3 43%, #4e00c2);
-        opacity: 1;
-    transition: opacity .5s;
-    animation: spin 2.5s linear infinite;
-}
-  
-@keyframes spin {
-    0% {
-      --rotate: 0deg;
-    }
-    100% {
-      --rotate: 360deg;
-    }
+    height: 475px;
 }
 
 .container h2 {
-    margin: 0 0 30px;
+    font-size: 30px;
+    margin: 0 0 20px;
     padding: 0;
     color: #fff;
     text-align: center;
@@ -98,11 +41,11 @@ body {
 }
   
 .container .header input {
-    width: 100%;
-    padding: 10px 0;
+    width: 300px;
+    padding: 15px 0;
     font-size: 16px;
     color: #fff;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     border: none;
     border-bottom: 1px solid #fff;
     outline: none;
@@ -131,15 +74,13 @@ body {
 .container form a {
     position: relative;
     display: inline-block;
-    padding: 10px 20px;
+    padding: 15px 15px;
+    left: 100px;
     color: #03e9f4;
     font-size: 16px;
     text-decoration: none;
-    text-transform: uppercase;
     overflow: hidden;
     transition: .5s;
-    margin-top: 40px;
-    letter-spacing: 4px;
 }
   
 .container a:hover {
@@ -189,7 +130,7 @@ body {
     0% {
         top: -100%;
     }
-    50%,100% {
+    50%, 100% {
         top: 100%;
     }
 }
@@ -208,7 +149,7 @@ body {
     0% {
         right: -100%;
     }
-    50%,100% {
+    50%, 100% {
         right: 100%;
     }
 }

@@ -3,8 +3,12 @@
     margin: 0;
 }
 
+.darkmode {
+    filter: invert(1) hue-rotate(180deg);
+}
+
 .background {
-    background-color: #121818;
+    background-color: #212534;
     height: 100vh;
     padding-top: 1px;
 }
@@ -13,7 +17,7 @@
     color: white;
     text-align: center;
     font-size: 40px;
-    margin-top: 10%;
+    margin-top: 3%;
 }
 
 .display {
@@ -79,5 +83,19 @@
 
 #reset {
     background-color: #ff3860;
+}
 
+.dark-mode-toggle {
+    position: absolute;
+    z-index: 100;
+    top: 1em;
+    right: 1em;
+    color: #fdffc4;
+    border: 2px solid currentColor;
+    padding: 4px;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 30px;
+    height: 30px;
 }
